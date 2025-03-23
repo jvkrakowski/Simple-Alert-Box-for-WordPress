@@ -1,0 +1,20 @@
+.alert-wrapper {
+    position: relative;
+}
+
+.alert {
+    display: none;
+    color: #721c24;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    position: relative;
+}
+
+.alert .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
