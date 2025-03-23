@@ -7,7 +7,7 @@ Plugin URI: https://www.9realmsmedia.com/wp-alert-box
 License: GPLv2 or later
 Author URI: https://www.9realmsmedia.com
 Author: J.V Krakowski at 9 Realms Media
-text-domain: nrm-alert-box
+text-domain: simple-alert-box
 */
 
 // Exit if accessed directly
@@ -24,7 +24,7 @@ function alert_box_check_compatibility() {
 
     if (version_compare($wp_version, ALERT_BOX_MIN_WP_VERSION, '<')) {
         deactivate_plugins(plugin_basename(__FILE__));
-        wp_die(esc_html__('This plugin requires WordPress version ', 'nrm-alert-box') . esc_html(ALERT_BOX_MIN_WP_VERSION) . esc_html__(' or higher.', 'nrm-alert-box'));
+        wp_die(esc_html__('This plugin requires WordPress version ', 'simple-alert-box') . esc_html(ALERT_BOX_MIN_WP_VERSION) . esc_html__(' or higher.', 'simple-alert-box'));
     }
 }
 add_action('admin_init', 'alert_box_check_compatibility');
@@ -44,37 +44,37 @@ register_activation_hook(__FILE__, 'alert_box_install');
 // Register Custom Post Type
 function create_alert_cpt() {
     $labels = array(
-        'name' => _x('Alerts', 'Post Type General Name', 'nrm-alert-box'),
-        'singular_name' => _x('Alert', 'Post Type Singular Name', 'nrm-alert-box'),
-        'menu_name' => __('Alerts', 'nrm-alert-box'),
-        'name_admin_bar' => __('Alert', 'nrm-alert-box'),
-        'archives' => __('Alert Archives', 'nrm-alert-box'),
-        'attributes' => __('Alert Attributes', 'nrm-alert-box'),
-        'parent_item_colon' => __('Parent Alert:', 'nrm-alert-box'),
-        'all_items' => __('All Alerts', 'nrm-alert-box'),
-        'add_new_item' => __('Add New Alert', 'nrm-alert-box'),
-        'add_new' => __('Add New', 'nrm-alert-box'),
-        'new_item' => __('New Alert', 'nrm-alert-box'),
-        'edit_item' => __('Edit Alert', 'nrm-alert-box'),
-        'update_item' => __('Update Alert', 'nrm-alert-box'),
-        'view_item' => __('View Alert', 'nrm-alert-box'),
-        'view_items' => __('View Alerts', 'nrm-alert-box'),
-        'search_items' => __('Search Alert', 'nrm-alert-box'),
-        'not_found' => __('Not found', 'nrm-alert-box'),
-        'not_found_in_trash' => __('Not found in Trash', 'nrm-alert-box'),
-        'featured_image' => __('Featured Image', 'nrm-alert-box'),
-        'set_featured_image' => __('Set featured image', 'nrm-alert-box'),
-        'remove_featured_image' => __('Remove featured image', 'nrm-alert-box'),
-        'use_featured_image' => __('Use as featured image', 'nrm-alert-box'),
-        'insert_into_item' => __('Insert into alert', 'nrm-alert-box'),
-        'uploaded_to_this_item' => __('Uploaded to this alert', 'nrm-alert-box'),
-        'items_list' => __('Alerts list', 'nrm-alert-box'),
-        'items_list_navigation' => __('Alerts list navigation', 'nrm-alert-box'),
-        'filter_items_list' => __('Filter alerts list', 'nrm-alert-box'),
+        'name' => _x('Alerts', 'Post Type General Name', 'simple-alert-box'),
+        'singular_name' => _x('Alert', 'Post Type Singular Name', 'simple-alert-box'),
+        'menu_name' => __('Alerts', 'simple-alert-box'),
+        'name_admin_bar' => __('Alert', 'simple-alert-box'),
+        'archives' => __('Alert Archives', 'simple-alert-box'),
+        'attributes' => __('Alert Attributes', 'simple-alert-box'),
+        'parent_item_colon' => __('Parent Alert:', 'simple-alert-box'),
+        'all_items' => __('All Alerts', 'simple-alert-box'),
+        'add_new_item' => __('Add New Alert', 'simple-alert-box'),
+        'add_new' => __('Add New', 'simple-alert-box'),
+        'new_item' => __('New Alert', 'simple-alert-box'),
+        'edit_item' => __('Edit Alert', 'simple-alert-box'),
+        'update_item' => __('Update Alert', 'simple-alert-box'),
+        'view_item' => __('View Alert', 'simple-alert-box'),
+        'view_items' => __('View Alerts', 'simple-alert-box'),
+        'search_items' => __('Search Alert', 'simple-alert-box'),
+        'not_found' => __('Not found', 'simple-alert-box'),
+        'not_found_in_trash' => __('Not found in Trash', 'simple-alert-box'),
+        'featured_image' => __('Featured Image', 'simple-alert-box'),
+        'set_featured_image' => __('Set featured image', 'simple-alert-box'),
+        'remove_featured_image' => __('Remove featured image', 'simple-alert-box'),
+        'use_featured_image' => __('Use as featured image', 'simple-alert-box'),
+        'insert_into_item' => __('Insert into alert', 'simple-alert-box'),
+        'uploaded_to_this_item' => __('Uploaded to this alert', 'simple-alert-box'),
+        'items_list' => __('Alerts list', 'simple-alert-box'),
+        'items_list_navigation' => __('Alerts list navigation', 'simple-alert-box'),
+        'filter_items_list' => __('Filter alerts list', 'simple-alert-box'),
     );
     $args = array(
-        'label' => __('Alert', 'nrm-alert-box'),
-        'description' => __('Alert custom post type', 'nrm-alert-box'),
+        'label' => __('Alert', 'simple-alert-box'),
+        'description' => __('Alert custom post type', 'simple-alert-box'),
         'labels' => $labels,
         'supports' => array('title', 'editor', 'excerpt', 'custom-fields',),
         'hierarchical' => false,
@@ -111,7 +111,7 @@ function alert_box_shortcode($atts) {
         array(
             'bg_color' => '#f8d7da',
             'ids' => '',
-            'link_text' => __('Show Alert', 'nrm-alert-box'),
+            'link_text' => __('Show Alert', 'simple-alert-box'),
         ),
         $atts,
         'alert_box'
@@ -150,7 +150,7 @@ add_shortcode('alert_box', 'alert_box_shortcode');
 
 // Add Post ID to Admin Columns
 function add_alert_columns($columns) {
-    $columns['alert_id'] = __('Alert ID', 'nrm-alert-box');
+    $columns['alert_id'] = __('Alert ID', 'simple-alert-box');
     return $columns;
 }
 add_filter('manage_alert_posts_columns', 'add_alert_columns');
